@@ -112,5 +112,32 @@ float main(int argc, char *argv[]) {
 	printf("Servidor retornou como resultado: \n");
 	printf("%.2f \n", adicao(clnt, valor1, valor2));
 
+	switch(operacao) {
+		case 1:
+			printf("Servidor processou o seguinte resultado: \n");
+			printf("%.2f + %.2f = %.2f\n", valor1, valor2, adicao(clnt, valor1, valor2));
+		break;
+		case 2:
+			printf("Servidor processou o seguinte resultado: \n");
+			printf("%.2f - %.2f = %.2f\n", valor1, valor2, subtracao(clnt, valor1, valor2));
+		break;
+		case 3:
+		if(valor2!=0) {
+			printf("Servidor processou o seguinte resultado: \n");
+			printf("%.2f / %.2f = %.2f\n", valor1, valor2, divisao(clnt, valor1, valor2));
+		} else {
+			printf("Não existe divisão por 0!\n");
+		}
+		break;
+		case 4:
+			printf("Servidor processou o seguinte resultado: \n");
+			printf("%.2f * %.2f = %.2f\n", valor1, valor2, multiplicacao(clnt, valor1, valor2));
+		break;
+		default:
+			printf("Operador inválido! \n");
+			printf("Escolha um tipo de operação: \n1 para [+]\n 2 para [-]\n 3 para [/]\n 4 para [*]; \n");
+			break;
+	};
+
 	return 0;
 }
