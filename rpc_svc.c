@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "soma.h"
+#include "rpc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <rpc/pmap_clnt.h>
@@ -21,6 +21,9 @@ soma_100(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
 		valores adicao_100_arg;
+		valores subtracao_100_arg;
+		valores divisao_100_arg;
+		valores multiplicacao_100_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -35,6 +38,24 @@ soma_100(struct svc_req *rqstp, register SVCXPRT *transp)
 		_xdr_argument = (xdrproc_t) xdr_valores;
 		_xdr_result = (xdrproc_t) xdr_float;
 		local = (char *(*)(char *, struct svc_req *)) adicao_100_svc;
+		break;
+
+	case SUBTRACAO:
+		_xdr_argument = (xdrproc_t) xdr_valores;
+		_xdr_result = (xdrproc_t) xdr_float;
+		local = (char *(*)(char *, struct svc_req *)) subtracao_100_svc;
+		break;
+
+	case DIVISAO:
+		_xdr_argument = (xdrproc_t) xdr_valores;
+		_xdr_result = (xdrproc_t) xdr_float;
+		local = (char *(*)(char *, struct svc_req *)) divisao_100_svc;
+		break;
+
+	case MULTIPLICACAO:
+		_xdr_argument = (xdrproc_t) xdr_valores;
+		_xdr_result = (xdrproc_t) xdr_float;
+		local = (char *(*)(char *, struct svc_req *)) multiplicacao_100_svc;
 		break;
 
 	default:

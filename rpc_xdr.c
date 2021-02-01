@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "soma.h"
+#include "rpc.h"
 
 bool_t
 xdr_valores (XDR *xdrs, valores *objp)

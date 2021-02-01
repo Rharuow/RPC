@@ -3,8 +3,8 @@
  * It was generated using rpcgen.
  */
 
-#ifndef _SOMA_H_RPCGEN
-#define _SOMA_H_RPCGEN
+#ifndef _RPC_H_RPCGEN
+#define _RPC_H_RPCGEN
 
 #include <rpc/rpc.h>
 
@@ -27,12 +27,30 @@ typedef struct valores valores;
 #define ADICAO 1
 extern  float * adicao_100(valores *, CLIENT *);
 extern  float * adicao_100_svc(valores *, struct svc_req *);
+#define SUBTRACAO 2
+extern  float * subtracao_100(valores *, CLIENT *);
+extern  float * subtracao_100_svc(valores *, struct svc_req *);
+#define DIVISAO 3
+extern  float * divisao_100(valores *, CLIENT *);
+extern  float * divisao_100_svc(valores *, struct svc_req *);
+#define MULTIPLICACAO 4
+extern  float * multiplicacao_100(valores *, CLIENT *);
+extern  float * multiplicacao_100_svc(valores *, struct svc_req *);
 extern int soma_100_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
 #define ADICAO 1
 extern  float * adicao_100();
 extern  float * adicao_100_svc();
+#define SUBTRACAO 2
+extern  float * subtracao_100();
+extern  float * subtracao_100_svc();
+#define DIVISAO 3
+extern  float * divisao_100();
+extern  float * divisao_100_svc();
+#define MULTIPLICACAO 4
+extern  float * multiplicacao_100();
+extern  float * multiplicacao_100_svc();
 extern int soma_100_freeresult ();
 #endif /* K&R C */
 
@@ -50,4 +68,4 @@ extern bool_t xdr_valores ();
 }
 #endif
 
-#endif /* !_SOMA_H_RPCGEN */
+#endif /* !_RPC_H_RPCGEN */
