@@ -1,20 +1,6 @@
-// --------------------------- SOMA
-float adicao(CLIENT *clnt, float valor1, float valor2) {
-	valores numero;
-	float *result;
+#include "rpc.h"
+#include <stdio.h>
 
-	numero.valor1 = valor1;	
-	numero.valor2 = valor2;	
-
-	result = adicao_100(&numero, clnt);
-
-	if(result == NULL) {
-		fprintf(stderr, "Problema na chamada do RPC \n");
-		exit(0);
-	}
-
-	return *result;
-}
 // --------------------------- SOMA
 float adicao(CLIENT *clnt, float valor1, float valor2) {
 	valores numero;
@@ -38,7 +24,7 @@ float subtracao(CLIENT *clnt, float valor1, float valor2) {
 	float *result;
 
 	numero.valor1 = valor1;	
-	numero.valor2 = valor2;	
+	numero.valor2 = valor2;
 
 	result = subtracao_100(&numero, clnt);
 
@@ -54,8 +40,8 @@ float multiplicacao(CLIENT *clnt, float valor1, float valor2) {
 	valores numero;
 	float *result;
 
-	numero.valor1 = valor1;	
-	numero.valor2 = valor2;	
+	numero.valor1 = valor1;
+	numero.valor2 = valor2;
 
 	result = multiplicacao_100(&numero, clnt);
 
@@ -90,7 +76,7 @@ float main(int argc, char *argv[]) {
 	float valor1, valor2;
 	int operacao;
 
-	printf("Escolha operação:");
+	printf("Escolha operação:\n");
 	printf("(1)- Soma\n");
 	printf("(2)- Subtração\n");
 	printf("(3)- Divisão\n");
@@ -108,9 +94,6 @@ float main(int argc, char *argv[]) {
 		clnt_pcreateerror (argv[1]);
 		exit (1);
 	}
-
-	printf("Servidor retornou como resultado: \n");
-	printf("%.2f \n", adicao(clnt, valor1, valor2));
 
 	switch(operacao) {
 		case 1:
